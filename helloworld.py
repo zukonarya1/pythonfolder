@@ -30,7 +30,6 @@ print(name)
 color = input("What is your favorite color?  ")
 animal = input("What is your favorite animal?  ")
 print("{}, you like a {} {}!".format(name,color,animal))
-'''
 myFruitList = ["apple", "banana", "cherry"]
 print(myFruitList)
 print(type(myFruitList))
@@ -55,11 +54,22 @@ print(type(myFavoriteFruitDictionary))
 print(myFavoriteFruitDictionary["Akua"])
 print(myFavoriteFruitDictionary["Saanvi"])
 print(myFavoriteFruitDictionary["Paulo"])
-print(myFavoriteFruitDictionary)
-print(type(myFavoriteFruitDictionary))
-print(myFavoriteFruitDictionary["Akua"])
-print(myFavoriteFruitDictionary["Saanvi"])
-print(myFavoriteFruitDictionary["Paulo"])
 myMixedTypeList = [45, 290578, 1.02, True, "My dog is on the bed.", "45"]
 for item in myMixedTypeList:
     print("{} is of the data type {}".format(item,type(item)))
+'''
+import csv
+import copy
+myVehicle = {
+    "vin" : "<empty>",
+    "make" : "<empty>" ,
+    "model" : "<empty>" ,
+    "year" : 0,
+    "range" : 0,
+    "topSpeed" : 0,
+    "zeroSixty" : 0.0,
+    "mileage" : 0
+}
+for key, value in myVehicle.items():
+    print("{} : {}".format(key,value))
+myInventoryList = []
