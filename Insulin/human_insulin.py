@@ -14,12 +14,12 @@ def extract_insulin_chains(preproinsulin_sequence):
     """
     # In programming, indexing starts at 0. In biology, it starts at 1.
     # To get amino acids 25-54, we slice from index 24 up to (but not including) 54.
-    lsinsulin = preproinsulin_sequence[0:23]
-    binsulin = preproinsulin_sequence[24:53]
+    lsinsulin = preproinsulin_sequence[0:24]
+    binsulin = preproinsulin_sequence[25:55]
     
     # To get amino acids 90-110, we slice from index 89 up to (but not including) 110.
-    cinsulin = preproinsulin_sequence[54:88]
-    ainsulin = preproinsulin_sequence[89:110]
+    cinsulin = preproinsulin_sequence[54:89]
+    ainsulin = preproinsulin_sequence[90:111]
     
     # The final insulin molecule is the combination of these two chains.
     # In the body, they are linked by disulfide bonds, but for sequence
@@ -51,13 +51,15 @@ if __name__ == "__main__":
             print(f"\nStarting with Preproinsulin (Length: {len(full_sequence)}aa)")
             print("-" * 50)
 
-            b_chain, a_chain, final_insulin = extract_insulin_chains(full_sequence)
+            lsinsulin, binsulin, cinsulin, ainsulin, final_insulin = extract_insulin_chains(full_sequence)
 
-            print(f"B Chain (aa 25-54):  {b_chain} (Length: {len(b_chain)}aa)")
-            print(f"A Chain (aa 90-110):  {a_chain} (Length: {len(a_chain)}aa)")
+            print(f"lsinsulin (aa 1-24):  {lsinsulin} (Length: {len(lsinsulin)}aa)")
+            print(f"binsulin (aa 25-54):  {binsulin} (Length: {len(binsulin)}aa)")
+            print(f"cinsulin (aa 55-89):  {cinsulin} (Length: {len(cinsulin)}aa)")
+            print(f"ainsulin (aa 90-110):  {ainsulin} (Length: {len(ainsulin)}aa)")
             
             print("-" * 50)
-            print("Final Processed Insulin Molecule (B-Chain + A-Chain):")
+            print("Final Processed Insulin Molecule (lsinsulin + binsulin + cinsulin + ainsulin):")
             print(final_insulin)
             print(f"Total Length: {len(final_insulin)}aa")
         else:
@@ -67,4 +69,3 @@ if __name__ == "__main__":
         print(f"❌ Error: The file at '{input_filepath}' was not found.")
     except Exception as e:
         print(f"❌ An unexpected error occurred: {e}")
-
